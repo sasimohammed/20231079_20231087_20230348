@@ -182,7 +182,7 @@ public:
         }
     }
 
-    bool validation_col(int cols)
+    bool validation_col(int cols) override
     {
         if( (cols>=0 && cols<5))
         {

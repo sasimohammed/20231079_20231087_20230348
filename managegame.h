@@ -17,6 +17,12 @@ public:
 
     virtual void set_cell(int row, int col, T value) = 0;
     virtual void take_turn() = 0;
+    virtual bool validation_col(int cols){};
+    virtual bool validation_row(int rows){};
+    virtual int validation1 (int row){};
+    virtual int validation2 (int cols){};
+
+
 };
 
 #endif

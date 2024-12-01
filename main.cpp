@@ -3,12 +3,14 @@
 #include "four_in_row_board.h"
 #include "numerical_tic_tac_toe_board.h"
 #include "Tic_tac_toe5_board.h"
+#include "game6_tic_tac_toe.h"
 int main() {
     cout << "Hello in our board games" << endl;
     cout << "choose your game" << endl;
     cout << "1) four_in_row_board" << endl;
     cout << "2) numerical_tic_tac_toe" << endl;
     cout << "3) 5 x 5 Tic Tac Toe" << endl;
+    cout<< "4) Misere Tic Tac Toe" << endl;
     int choice;
     cin >> choice;
     if (choice == 1) {
@@ -48,6 +50,23 @@ int main() {
         player<vector<char>> player2(player2_s);
         manage_game5 game5_manager(game_board, player1, player2);
         game5_manager.take_turn();
+
+    }
+
+    else if(choice ==4)
+    {
+        cout<<"player1: X"<<endl;
+        cout<<"player2: O"<<endl;
+        game6 game_board(3,3,'-');
+        game_board.display();
+        vector<char> player1_s = {'X'};
+        vector<char> player2_s = {'O'};
+        player<vector<char>> player1(player1_s);
+        player<vector<char>> player2(player2_s);
+        manage_game6 game6_manager(game_board, player1, player2);
+        game6_manager.take_turn();
+
+
 
     }
     return 0;
