@@ -15,7 +15,7 @@ public:
     managegame(board<T>& b, player<vector<T>>& p1, player<vector<T>>& p2)
             : board1(b), player1(p1), player2(p2) {}
 
-    virtual void set_cell(int row, int col, int value) = 0;
+    virtual void set_cell(int row, int col, T value) = 0;
     virtual void take_turn() = 0;
 };
 

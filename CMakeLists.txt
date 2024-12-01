@@ -8,4 +8,6 @@ add_executable(seperategames main.cpp
         player.h
         managegame.h
         four_in_row_board.h
-        numerical_tic_tac_toe_board.h)
+        numerical_tic_tac_toe_board.h
+        Tic_tac_toe5_board.h
+)

@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;  // Using the entire standard namespace
+using namespace std;
 
 class numirecal_tic_tac_toe_board : public board<int> {
 public:

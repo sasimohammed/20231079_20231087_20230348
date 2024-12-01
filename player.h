@@ -8,7 +8,7 @@ class player {
 private:
     T symbol;
 public:
-    explicit player(const T& symbol) : symbol(symbol) {}
+    player(const T& symbol) : symbol(symbol) {}
 
     T get_symbol() const {
         return symbol;

@@ -14,8 +14,44 @@ public:
             : r(rows), c(cols), board1(rows, std::vector<T>(cols, defaultValue)) {}
 
     virtual bool win_check() = 0;
-    virtual bool check_col(int col, int row) = 0;
-    virtual int check_row(int col) = 0;
+    virtual void increment_player1(int x)
+    {
+
+    }
+    virtual void increment_player2(int x)
+    {
+
+    }
+
+    virtual bool check_col(int row, int col)
+    {
+
+    };
+    virtual int check_row(int col)
+    {
+
+    };
+
+    virtual int vertical_check()
+    {
+
+    };
+
+    virtual int horizontal_check()
+    {
+
+    };
+
+    virtual int inc_diagonal_check( )
+    {
+
+    };
+
+    virtual int dec_diagonal_check()
+    {
+
+    };
+
 
     void display() const {
         for (const auto& row : board1) {
