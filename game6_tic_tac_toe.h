@@ -13,6 +13,7 @@ public:
     {
 
     }
+
     bool horizontal_check6()
     {
         for(int i=0;i<3;i++)
@@ -90,6 +91,10 @@ class manage_game6 : public managegame<char>
 {
 public:
     manage_game6(game6& board, player<vector<char>>& p1, player<vector<char>>& p2) : managegame<char>(board, p1, p2)
+    {
+
+    }
+    void set_cell(int row, int col, int  value) override
     {
 
     }

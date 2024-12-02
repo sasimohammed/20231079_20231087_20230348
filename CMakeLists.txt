@@ -9,6 +9,5 @@ add_executable(seperategames main.cpp
         managegame.h
         four_in_row_board.h
         numerical_tic_tac_toe_board.h
-        Tic_tac_toe5_board.h
-        game6_tic_tac_toe.h
-)
+        "Ultimate Tic Tac Toe .h"
+        Tic_tac_toe5_board.h)

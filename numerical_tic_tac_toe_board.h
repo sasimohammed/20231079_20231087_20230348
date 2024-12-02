@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+using namespace std;  // Using the entire standard namespace
 
 class numirecal_tic_tac_toe_board : public board<int> {
 public:
@@ -75,6 +75,10 @@ public:
     void set_cell(int row, int col, int value) override {
         board1.board1[row][col] = value;
     }
+    void set_cell(int row, int col, char value) {
+
+    }
+
 
     void check_value(int& num1, int& num2, int& i) {
         if (i % 2 == 0) {

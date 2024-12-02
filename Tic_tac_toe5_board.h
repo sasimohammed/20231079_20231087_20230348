@@ -136,7 +136,7 @@ public:
                     board2[i][j]='*';
                     board2[i+1][j+1]='*';
                     board2[i+2][j+2]='*';
-                   count++;
+                    count++;
                 }
             }
         }
@@ -163,7 +163,10 @@ public:
     {
 
     }
+    void set_cell(int row, int col, int  value) override
+    {
 
+    }
     void set_cell(int row, int col, char value) override
     {
         board1.board1[row][col] = value;

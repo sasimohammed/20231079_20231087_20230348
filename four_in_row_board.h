@@ -71,9 +71,10 @@ public:
     four_in_row_manage(four_in_row_board& board, player<vector<char>>& p1, player<vector<char>>& p2)
             : managegame<char>(board, p1, p2) {}
 
-    void set_cell(int row, int col, char value) override {
+    void set_cell(int row, int col, int value) override {
         board1.board1[row][col] = value;
     }
+    virtual void set_cell(int row, int col, char value )override {};
 
     void take_turn() override {
         int col1, col2;
