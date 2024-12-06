@@ -157,7 +157,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=seperategames
+CMAKE_PROJECT_NAME:STATIC=mad2
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Users/sebaa/AppData/Local/JetBrains/CLion 2023.3/bin/mingw/bin/ranlib.exe
@@ -241,6 +241,15 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+mad2_BINARY_DIR:STATIC=C:/Users/sebaa/CLionProjects/20231079_20231087_20230348/cmake-build-debug
+
+//Value Computed by CMake
+mad2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+mad2_SOURCE_DIR:STATIC=C:/Users/sebaa/CLionProjects/20231079_20231087_20230348
 
 //Value Computed by CMake
 seperategames_BINARY_DIR:STATIC=C:/Users/sebaa/CLionProjects/20231079_20231087_20230348/cmake-build-debug

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "seperategames.exe"
+			"path" : "mad2.exe"
 		},
 		{
-			"path" : "seperategames.pdb"
+			"path" : "mad2.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "seperategames::@6890427a1f51a3e7e1df",
+	"id" : "mad2::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "seperategames",
-	"nameOnDisk" : "seperategames.exe",
+	"name" : "mad2",
+	"nameOnDisk" : "mad2.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -100,9 +100,7 @@
 				2,
 				3,
 				4,
-				5,
-				6,
-				7
+				5
 			]
 		}
 	],
@@ -116,37 +114,27 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "board.h",
+			"path" : "BoardGame_Classes.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "player.h",
+			"path" : "3x3X_O.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "managegame.h",
+			"path" : "Four-in-a-row.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "four_in_row_board.h",
+			"path" : "Numerical-Tic-Tac-Toe.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "numerical_tic_tac_toe_board.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Tic_tac_toe5_board.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "game6_tic_tac_toe.h",
+			"path" : "game3.h",
 			"sourceGroupIndex" : 1
 		}
 	],

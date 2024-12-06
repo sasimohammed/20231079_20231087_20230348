@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: seperategames
+# Project: mad2
 # Configurations: Debug
 # =============================================================================
 
@@ -41,37 +41,37 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/sebaa/CLionProjects/20231079_20231087_20230348/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target seperategames
+# Object build statements for EXECUTABLE target mad2
 
 
 #############################################
-# Order-only phony target for seperategames
+# Order-only phony target for mad2
 
-build cmake_object_order_depends_target_seperategames: phony || .
+build cmake_object_order_depends_target_mad2: phony || .
 
-build CMakeFiles/seperategames.dir/main.cpp.obj: CXX_COMPILER__seperategames_unscanned_Debug C$:/Users/sebaa/CLionProjects/20231079_20231087_20230348/main.cpp || cmake_object_order_depends_target_seperategames
-  DEP_FILE = CMakeFiles\seperategames.dir\main.cpp.obj.d
+build CMakeFiles/mad2.dir/main.cpp.obj: CXX_COMPILER__mad2_unscanned_Debug C$:/Users/sebaa/CLionProjects/20231079_20231087_20230348/main.cpp || cmake_object_order_depends_target_mad2
+  DEP_FILE = CMakeFiles\mad2.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\seperategames.dir
-  OBJECT_FILE_DIR = CMakeFiles\seperategames.dir
+  OBJECT_DIR = CMakeFiles\mad2.dir
+  OBJECT_FILE_DIR = CMakeFiles\mad2.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target seperategames
+# Link build statements for EXECUTABLE target mad2
 
 
 #############################################
-# Link the executable seperategames.exe
+# Link the executable mad2.exe
 
-build seperategames.exe: CXX_EXECUTABLE_LINKER__seperategames_Debug CMakeFiles/seperategames.dir/main.cpp.obj
+build mad2.exe: CXX_EXECUTABLE_LINKER__mad2_Debug CMakeFiles/mad2.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\seperategames.dir
+  OBJECT_DIR = CMakeFiles\mad2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = seperategames.exe
-  TARGET_IMPLIB = libseperategames.dll.a
-  TARGET_PDB = seperategames.exe.dbg
+  TARGET_FILE = mad2.exe
+  TARGET_IMPLIB = libmad2.dll.a
+  TARGET_PDB = mad2.exe.dbg
 
 
 #############################################
@@ -99,7 +99,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build seperategames: phony seperategames.exe
+build mad2: phony mad2.exe
 
 # =============================================================================
 # Folder targets.
@@ -109,7 +109,7 @@ build seperategames: phony seperategames.exe
 #############################################
 # Folder: C:/Users/sebaa/CLionProjects/20231079_20231087_20230348/cmake-build-debug
 
-build all: phony seperategames.exe
+build all: phony mad2.exe
 
 # =============================================================================
 # Built-in targets

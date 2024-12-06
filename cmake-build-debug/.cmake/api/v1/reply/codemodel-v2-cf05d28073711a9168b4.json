@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "seperategames",
+					"name" : "mad2",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "seperategames::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-seperategames-Debug-39111435f6a628b4bf81.json",
-					"name" : "seperategames",
+					"id" : "mad2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mad2-Debug-2b567eeb2d785824b209.json",
+					"name" : "mad2",
 					"projectIndex" : 0
 				}
 			]
