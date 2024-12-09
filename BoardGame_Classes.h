@@ -89,6 +89,7 @@ GameManager<T>::GameManager(Board<T>* bPtr, Player<T>* playerPtr[2]) {
     players[1] = playerPtr[1];
 }
 
+
 template <typename T>
 void GameManager<T>::run() {
     int x, y;
@@ -97,6 +98,7 @@ void GameManager<T>::run() {
 
     while (!boardPtr->game_is_over()) {
         for (int i : {0, 1}) {
+
             cout << players[i]->getname() << "'s turn ("
                  << players[i]->getsymbol() << ").\n";
             players[i]->getmove(x, y);

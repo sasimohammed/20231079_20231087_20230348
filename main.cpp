@@ -5,7 +5,13 @@
 #include "Four-in-a-row.h"
 #include "numerical_tic_tac_toe_board.h"
 #include "Numerical-Tic-Tac-Toe.h"
+#include "game3.h"
 using namespace std;
+
+
+
+string name;
+
 
 int main() {
     cout << "Welcome to FCAI  Games. :)\n";
@@ -88,11 +94,11 @@ int main() {
         cin >> choice;
         switch(choice) {
             case 1:
-                players[0] = new  Numerical_Tic_Tac_Toe_Player<char>(playerXName, '0');
+                players[0] = new  Numerical_Tic_Tac_Toe_Player<char>(playerXName, 'X');
                 break;
             case 2:
 
-                players[0] = new Numerical_Tic_Tac_Toe_Random_Player<char>('0');
+                players[0] = new Numerical_Tic_Tac_Toe_Random_Player<char>('X');
 
                 break;
             case 3:
@@ -126,6 +132,69 @@ int main() {
         }
         GameManager<char>  Numerical_Tic_Tac_Toe(B, players);
         Numerical_Tic_Tac_Toe.run();
+        delete B;
+        for (int i = 0; i < 2; ++i) {
+            delete players[i];
+        }
+    }
+
+    else if(gamenum==3)
+    {
+
+        int choice;
+        Player<char>* players[2];
+        _5x5_XO_board<char>*B = new  _5x5_XO_board<char>();
+        string playerXName, player2Name;
+
+        cout << "Enter Player 1 name: ";
+        cin >> playerXName;
+        name = playerXName;
+        cout << "Choose Player 1 type:\n";
+        cout << "1. Human\n";
+        cout << "2. Random Computer\n";
+        cout << "3. Smart Computer (AI)\n";
+        cin >> choice;
+        switch(choice) {
+            case 1:
+                players[0] = new  _5x5_XO_Player<char>(playerXName, 'X');
+                break;
+            case 2:
+
+                players[0] = new _5x5_XO_Random_Player<char>('X');
+
+                break;
+            case 3:
+
+            default:
+                cout << "Invalid choice for Player 1. Exiting the game.\n";
+                return 1;
+        }
+        // Set up player 2
+        cout << "Enter Player 2 name: ";
+        cin >> player2Name;
+        cout << "Choose Player 2 type:\n";
+        cout << "1. Human\n";
+        cout << "2. Random Computer\n";
+        cout << "3. Smart Computer (AI)\n";
+        cin >> choice;
+
+        switch(choice) {
+            case 1:
+
+                players[1] = new _5x5_XO_Player<char>(player2Name, '0');
+                break;
+            case 2:
+                players[1] = new _5x5_XO_Random_Player<char>('0');
+                break;
+            case 3:
+
+            default:
+                cout << "Invalid choice for Player 2. Exiting the game.\n";
+                return 1;
+        }
+
+        GameManager<char> _5X5_tic_tac_toe(B, players);
+        _5X5_tic_tac_toe.run();
         delete B;
         for (int i = 0; i < 2; ++i) {
             delete players[i];
