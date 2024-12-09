@@ -84,6 +84,7 @@ using namespace std;
 
 template <typename T>
 GameManager<T>::GameManager(Board<T>* bPtr, Player<T>* playerPtr[2]) {
+
     boardPtr = bPtr;
     players[0] = playerPtr[0];
     players[1] = playerPtr[1];
@@ -92,19 +93,15 @@ GameManager<T>::GameManager(Board<T>* bPtr, Player<T>* playerPtr[2]) {
 
 template <typename T>
 void GameManager<T>::run() {
+
     int x, y;
 
     boardPtr->display_board();
 
     while (!boardPtr->game_is_over()) {
         for (int i : {0, 1}) {
-
-            cout << players[i]->getname() << "'s turn ("
-                 << players[i]->getsymbol() << ").\n";
             players[i]->getmove(x, y);
             while (!boardPtr->update_board(x, y, players[i]->getsymbol())) {
-                cout << "Invalid move. Please try again, "
-                     << players[i]->getname() << ".\n";
                 players[i]->getmove(x, y);
             }
             boardPtr->display_board();

@@ -10,4 +10,5 @@ add_executable(mad2 main.cpp
         Numerical-Tic-Tac-Toe.h
 
         game3.h
+        game6.h
 )

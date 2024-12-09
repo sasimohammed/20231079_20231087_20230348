@@ -4,16 +4,15 @@
 
 #include "BoardGame_Classes.h"
 
-extern string name;
-string player1_name;
+extern string player_name1;
+
 bool flag =false;
 template <typename T>
 class _5x5_XO_board:public Board<T> {
     int count_player1;
     int count_player2;
     char arr2 [5][5];
-    Player<T>* player1;
-    Player<T>* player2;
+
 
 public:
     int counter ;
@@ -233,7 +232,7 @@ cout<<"counter: "<<counter<<endl;
         }
         else if(count_player2<count_player1)
         {
-            cout << name << " wins\n";
+            cout << player_name1 << " wins\n";
             counter = 25;
             return false;
 
@@ -315,4 +314,32 @@ void _5x5_XO_Random_Player <T>::getmove(int& x, int& y) {
 
 
 #endif //GAME3_H
+
+
+/*
+ 2 0
+ 0 3
+ 1 2
+ 4 4
+ 0 1
+ 3 0
+ 1 1
+ 1 3
+ 3 2
+ 0 4
+ 4 2
+ 2 3
+ 3 4
+ 4 1
+ 4 3
+ 1 0
+ 2 1
+ 3 3
+ 1 4
+ 2 2
+ 2 4
+ 0 2
+ 4 0
+ 3 1
+ */
 
