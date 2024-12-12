@@ -98,10 +98,7 @@
 			[
 				1,
 				2,
-				3,
-				4,
-				5,
-				6
+				3
 			]
 		}
 	],
@@ -116,21 +113,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "BoardGame_Classes.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "3x3X_O.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Four-in-a-row.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Numerical-Tic-Tac-Toe.h",
 			"sourceGroupIndex" : 1
 		},
 		{

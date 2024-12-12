@@ -1,8 +1,8 @@
 #include <iostream>
 #include "BoardGame_Classes.h"
-#include "3x3X_O.h"
+
 #include "MinMaxPlayer.h"
-#include "Four-in-a-row.h"
+
 #include "numerical_tic_tac_toe_board.h"
 #include "Numerical-Tic-Tac-Toe.h"
 #include "game3.h"
