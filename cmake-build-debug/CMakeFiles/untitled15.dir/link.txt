@@ -1,0 +1,3 @@
+"C:\Users\sebaa\AppData\Local\JetBrains\CLion 2023.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\untitled15.dir/objects.a
+C:\Users\sebaa\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc CMakeFiles\untitled15.dir/objects.a @CMakeFiles\untitled15.dir\objects1.rsp
+C:\Users\sebaa\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\untitled15.dir/objects.a -Wl,--no-whole-archive -o untitled15.exe -Wl,--out-implib,libuntitled15.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\untitled15.dir\linkLibs.rsp

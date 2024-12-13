@@ -3,21 +3,38 @@
 #include "Pyramid_X_O.h"
 #include "Pyramid_X_O_Smart_Player.h"
 #include "SUS_X_O.h"
+#include "game3.h"
+#include "game6.h"
+#include "Four-in-a-row.h"
+#include "MinMaxPlayer.h"
+#include "Numerical-Tic-Tac-Toe.h"
+#include "Ultimate_Try.h"
+
 using namespace std;
 
+string player_name1,player_name2;
+int choice3,choice4;
+
 int main() {
+
     char GC_choice;
 
     do {
         cout << "Welcome to GameCenter!\n";
         cout << "Choose a game to play: \n";
         cout << "1. Pyramid X-O\n";
-        cout << "2. SUS X_O\n";
-        cout << "3. Exit GameCenter\n";
+        cout << "2. Four-in-a-row X_O\n";
+        cout<< "3. 5X5 X-O\n";
+        cout<< "5. Numerical X-O\n";
+        cout<< "6. Misere X_O\n";
+        cout<<"8. Ultimate X_O\n";
+        cout<<"9.  SUS X_O\n";
+        cout << "0. Exit GameCenter\n";
         cin >> GC_choice;
 
         switch (GC_choice) {
-            case '1': {
+            case '1':
+            {
                 char replay_choice;
                 do {
                     char choice1;
@@ -102,11 +119,400 @@ int main() {
 
                 } while (replay_choice == '1');
                 if (replay_choice == '3') {
-                    GC_choice = '3'; // Exit GameCenter
+                    GC_choice = '0'; // Exit GameCenter
                 }
                 break;
             }
             case '2': {
+                char replay_choice;
+                do {
+                int choice;
+                Player<char>* players[2];
+                four_in_row_board<char>*B = new  four_in_row_board<char>();
+                string playerXName, player2Name;
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice;
+
+                switch(choice) {
+                    case 1:
+                        players[0] = new  four_in_row_Player<char>(playerXName, 'X');
+                        break;
+                    case 2:
+                        players[0] = new four_in_row_Random_Player<char>('X');
+                        break;
+                    case 3:
+                        players[0] = new X_O_MinMax_Player<char>('X');
+                        players[0]->setBoard(B);
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice;
+
+                switch(choice) {
+                    case 1:
+                        players[1] = new four_in_row_Player<char>(player2Name, 'O');
+                        break;
+                    case 2:
+                        players[1] = new four_in_row_Random_Player<char>('O');
+                        break;
+                    case 3:
+                        players[1] = new X_O_MinMax_Player<char>('O');
+                        players[1]->setBoard(B);
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+                GameManager<char> four_in_row(B, players);
+                four_in_row.run();
+                delete B;
+                for (int i = 0; i < 2; ++i) {
+                    delete players[i];
+                }
+                    // Replay prompt
+                    cout << "Do you want to:\n";
+                    cout << "1. Play the same game again\n";
+                    cout << "2. Exit this game\n";
+                    cout << "3. Exit GameCenter\n";
+                    cin >> replay_choice;
+
+                } while (replay_choice == '1');
+                if (replay_choice == '3') {
+                    GC_choice = '0'; // Exit GameCenter
+                }
+
+                break;
+            }
+            case '3':
+            {
+                char replay_choice;
+                do {
+                int choice;
+                Player<char>* players[2];
+                _5x5_XO_board<char>*B = new  _5x5_XO_board<char>();
+                string playerXName, player2Name;
+
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice;
+                switch(choice) {
+                    case 1:
+                    {
+                        players[0] = new  _5x5_XO_Player<char>(playerXName, 'X');
+                        player_name1 = playerXName;
+                        break;
+                    }
+
+                    case 2:
+                    {
+                        players[0] = new _5x5_XO_Random_Player<char>('X');
+                        player_name1 = "Random Computer Player";
+                        break;
+                    }
+
+                    case 3:
+
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice;
+
+                switch(choice) {
+                    case 1:
+                        players[1] = new _5x5_XO_Player<char>(player2Name, '0');
+                        break;
+                    case 2:
+                        players[1] = new _5x5_XO_Random_Player<char>('0');
+                        break;
+                    case 3:
+
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+
+                GameManager<char> _5X5_tic_tac_toe(B, players);
+                _5X5_tic_tac_toe.run();
+                delete B;
+                for (int i = 0; i < 2; ++i) {
+                    delete players[i];
+                }
+                    // Replay prompt
+                    cout << "Do you want to:\n";
+                    cout << "1. Play the same game again\n";
+                    cout << "2. Exit this game\n";
+                    cout << "3. Exit GameCenter\n";
+                    cin >> replay_choice;
+                } while (replay_choice == '1');
+                if (replay_choice == '3') {
+                    GC_choice = '0'; // Exit GameCenter
+                }
+                break;
+            }
+            case '4':
+            {
+
+            }
+
+            case '5':
+            {
+                char replay_choice;
+                do {
+                Player<char>* players[2];
+                Numerical_Tic_Tac_Toe_board<char>*B = new  Numerical_Tic_Tac_Toe_board<char>();
+                string playerXName, player2Name;
+
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice3;
+                switch(choice3) {
+                    case 1:
+                        players[0] = new  Numerical_Tic_Tac_Toe_Player<char>(playerXName, 'X');
+                        break;
+                    case 2:
+                        p=false;
+                        players[0] = new Numerical_Tic_Tac_Toe_Random_Player<char>('X');
+
+                        break;
+                    case 3:
+
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice4;
+                switch(choice4) {
+                    case 1:
+                        players[1] = new Numerical_Tic_Tac_Toe_Player<char>(player2Name, '0');
+                        break;
+                    case 2:
+                        p=true;
+                        players[1] = new Numerical_Tic_Tac_Toe_Random_Player<char>('0');
+                        break;
+                    case 3:
+
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+                if(choice3==2 &&choice4==2){
+                    p=false;
+                }
+                GameManager<char>  Numerical_Tic_Tac_Toe(B, players);
+                Numerical_Tic_Tac_Toe.run();
+                delete B;
+                for (int i = 0; i < 2; ++i) {
+                    delete players[i];
+                    }
+                    // Replay prompt
+                    cout << "Do you want to:\n";
+                    cout << "1. Play the same game again\n";
+                    cout << "2. Exit this game\n";
+                    cout << "3. Exit GameCenter\n";
+                    cin >> replay_choice;
+                } while (replay_choice == '1');
+                if (replay_choice == '3') {
+                    GC_choice = '0'; // Exit GameCenter
+                }
+
+                break;
+            }
+            case '6':
+            {
+                char replay_choice;
+                do {
+                    int choice;
+                    Player<char>* players[2];
+                    Misere_XO_board<char>*B = new Misere_XO_board<char>();
+                    string playerXName, player2Name;
+
+                    cout << "Enter Player 1 name: ";
+                    cin >> playerXName;
+                    cout << "Enter Player 2 name: ";
+                    cin >> player2Name;
+                    player_name1 = playerXName;
+                    cout << "Choose Player 1 type:\n";
+                    cout << "1. Human\n";
+                    cout << "2. Random Computer\n";
+                    cout << "3. Smart Computer (AI)\n";
+                    cin >> choice;
+                    switch(choice) {
+                        case 1:
+                            players[0] = new  Misere_XO_player<char>(player2Name, 'X');
+                            break;
+                        case 2:
+
+                            players[0] = new Misere_XO_Random_player<char>('X');
+
+                            break;
+                        case 3:
+
+                        default:
+                            cout << "Invalid choice for Player 1. Exiting the game.\n";
+                            return 1;
+                    }
+                    // Set up player 2
+
+                    player_name2 = player2Name;
+                    cout << "Choose Player 2 type:\n";
+                    cout << "1. Human\n";
+                    cout << "2. Random Computer\n";
+                    cout << "3. Smart Computer (AI)\n";
+                    cin >> choice;
+
+                    switch(choice) {
+                        case 1:
+
+                            players[1] = new Misere_XO_player<char>(playerXName, '0');
+                            break;
+                        case 2:
+                            players[1] = new Misere_XO_Random_player<char>('0');
+                            break;
+                        case 3:
+
+                        default:
+                            cout << "Invalid choice for Player 2. Exiting the game.\n";
+                            return 1;
+                    }
+
+                    GameManager<char> Misere_tic_tac_toe(B, players);
+                    Misere_tic_tac_toe.run();
+                    delete B;
+                    for (int i = 0; i < 2; ++i) {
+                        delete players[i];
+                    }
+                    // Replay prompt
+                    cout << "Do you want to:\n";
+                    cout << "1. Play the same game again\n";
+                    cout << "2. Exit this game\n";
+                    cout << "3. Exit GameCenter\n";
+                    cin >> replay_choice;
+                } while (replay_choice == '1');
+                if (replay_choice == '3') {
+                    GC_choice = '0'; // Exit GameCenter
+                }
+                break;
+
+            }
+            case '8':
+            {
+                char replay_choice;
+                do {
+                int choice;
+                int choice1;
+                Player<char>* players[2];
+                ultimate_tic_tac_toe_main_board<char>*B = new  ultimate_tic_tac_toe_main_board<char>();
+                string playerXName, player2Name;
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice;
+                switch(choice) {
+                    case 1:
+                        players[0] = new ultimate_tic_tac_toe_main_board_player<char>(playerXName, 'X');
+                        break;
+                    case 2:
+                        players[0] = new ultimate_tic_tac_toe_main_board_random_player<char>('X');
+                        break;
+                    case 3:
+//            players[0] = new X_O_MinMax_Player<char>('X');
+//            players[0]->setBoard(B);
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cout << "3. Smart Computer (AI)\n";
+                cin >> choice1;
+                switch(choice1) {
+                    case 1:
+                        players[1] = new ultimate_tic_tac_toe_main_board_player<char>(player2Name, 'O');
+                        break;
+                    case 2:
+                        players[1] = new ultimate_tic_tac_toe_main_board_random_player<char>('O');
+                        break;
+                    case 3:
+//            players[1] = new X_O_MinMax_Player<char>('O');
+//            players[1]->setBoard(B);
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+
+
+                GameManager<char> four_in_row(B, players);
+                cout<<"You have 9 boards look like this one (3x3) board so choose your one and start playing ,( boards number from (1-9) )"<<endl;
+                B->get_sub_board_num();
+                four_in_row.run();
+                delete B;
+                for (int i = 0; i < 2; ++i) {
+                    delete players[i];
+
+                }
+                    // Replay prompt
+                    cout << "Do you want to:\n";
+                    cout << "1. Play the same game again\n";
+                    cout << "2. Exit this game\n";
+                    cout << "3. Exit GameCenter\n";
+                    cin >> replay_choice;
+                } while (replay_choice == '1');
+                if (replay_choice == '3') {
+                    GC_choice = '0'; // Exit GameCenter
+                }
+                break;
+            }
+            case '9':
+            {
                 char replay_choice;
                 do {
                     char choice2;
@@ -182,17 +588,17 @@ int main() {
 
                 } while (replay_choice == '1');
                 if (replay_choice == '3') {
-                    GC_choice = '3'; // Exit GameCenter
+                    GC_choice = '0'; // Exit GameCenter
                 }
                 break;
             }
-            case '3':
+            case '0':
                 cout << "Exiting GameCenter...\n";
                 break;
             default:
                 cout << "Invalid choice. Please try again.\n";
         }
-    } while (GC_choice != '3');
+    } while (GC_choice != '0');
 
     return 0;
 }

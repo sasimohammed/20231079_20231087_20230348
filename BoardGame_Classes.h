@@ -1,5 +1,5 @@
-#ifndef _BOARDGAME_CLASSES_H
-#define _BOARDGAME_CLASSES_H
+#ifndef BOARDGAME_CLASSES_H
+#define BOARDGAME_CLASSES_H
 
 #include <string>
 #include <vector>

@@ -1,0 +1,3 @@
+C:/Users/sebaa/CLionProjects/20231079_20231087_20230348_/cmake-build-debug/CMakeFiles/untitled15.dir
+C:/Users/sebaa/CLionProjects/20231079_20231087_20230348_/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sebaa/CLionProjects/20231079_20231087_20230348_/cmake-build-debug/CMakeFiles/rebuild_cache.dir

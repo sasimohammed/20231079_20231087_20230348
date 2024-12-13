@@ -7,4 +7,11 @@ add_executable(untitled15 main.cpp
         BoardGame_Classes.h
         Pyramid_X_O.h
         Pyramid_X_O_Smart_Player.h
-        SUS_X_O.h)
+        SUS_X_O.h
+        game3.h
+        game6.h
+        Four-in-a-row.h
+        MinMaxPlayer.h
+        Numerical-Tic-Tac-Toe.h
+        Ultimate_Try.h
+)

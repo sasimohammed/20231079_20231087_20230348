@@ -3,15 +3,16 @@
 #include "BoardGame_Classes.h"
 #include <iomanip>
 using namespace std;
-
+int win_count_p1;
+int win_count_p2;
+int swtch;
 
 template <typename T>
 class SUS_X_O_Board : public Board<T>{
-    int win_count_p1;
-    int win_count_p2;
     int r1 , r2 , r3 , c1, c2 , c3 , d1 , d2;
-    int swtch;
+
 public:
+
     SUS_X_O_Board();
     bool update_board(int x , int y, T symbol);
     void display_board();
@@ -23,6 +24,7 @@ public:
 
 template <typename T>
 class SUS_X_O_Player : public Player<T>{
+    SUS_X_O_Board<T>* SUSboardPtr;  // Pointer to the board
 public:
     SUS_X_O_Player(string n,T letter);
     void getmove(int& x, int& y);
@@ -53,19 +55,19 @@ SUS_X_O_Board<T>::SUS_X_O_Board() {
         }
     }
     this->n_moves = 0;
-    this->swtch = 0;
-    this->win_count_p1 = this->win_count_p2 = 0;
+    swtch = 0;
+    win_count_p1 = win_count_p2 = 0;
 }
 
 template <typename T>
 bool SUS_X_O_Board<T>::update_board(int x, int y, T symbol) {
-    if(this->n_moves == 9) {
-        this->swtch ++;
+    if(this->n_moves==9) {
+        swtch ++;
         return true;
     }
     if(x >= 0 && x < 3 && y >= 0 && y < 3 && this->board[x][y] == 0){
         this->board[x][y]= toupper(symbol);
-        this->swtch++;
+        swtch++;
         this->n_moves++;
         return true;
     }
@@ -74,7 +76,7 @@ bool SUS_X_O_Board<T>::update_board(int x, int y, T symbol) {
 
 template <typename T>
 void SUS_X_O_Board<T>::display_board() {
-    if (this->n_moves == 9 && this->swtch == 10) return;
+    if (this->n_moves == 9 && swtch == 10) return;
     for (int i = 0; i < this->rows; i++) {
         for (int j = 0; j < this->columns; j++) {
             cout << "|(" << i << "," << j << ") " << this->board[i][j] << " |";
@@ -87,7 +89,7 @@ void SUS_X_O_Board<T>::display_board() {
 
 template <typename T>
 bool SUS_X_O_Board<T>::is_draw() {
-    return (this->n_moves == 9 && this->win_count_p1 == this->win_count_p2);
+    return (this->n_moves == 9 && win_count_p1 == win_count_p2);
 }
 
 template <typename T>
@@ -105,53 +107,57 @@ bool SUS_X_O_Board<T>::is_win() {
     //Horizontal win
     if (check_win(0,0,0,1,0,2) && r1 == 1){
         r1 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     if (check_win(1,0,1,1,1,2) && r2 == 1){
         r2 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     if (check_win(2,0,2,1,2,2) && r3 == 1){
         r3 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     //Vertical win
     if (check_win(0,0,1,0,2,0) && c1 == 1){
         c1 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     if (check_win(0,1,1,1,2,1) && c2 == 1){
         c2 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     if (check_win(0,2,1,2,2,2) && c3 == 1){
         c3 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     //Diagonal win
     if (check_win(0,0,1,1,2,2) && d1 == 1){
         d1 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
     if (check_win(0,2,1,1,2,0) && d2 == 1){
         d2 = 0;
-        if (this->swtch % 2 != 0) this->win_count_p1++;
-        if (this->swtch % 2 == 0) this->win_count_p2++;
+        if (swtch % 2 != 0) win_count_p1++;
+        if (swtch % 2 == 0) win_count_p2++;
     }
-    cout << "Player 1 : " << this->win_count_p1 << " Point(s)\n";
-    cout << "Player 2 : " << this->win_count_p2 << " Point(s)\n";
-    cout << "---------------------------------\n";
-    if (this->n_moves == 9) {
-        if (this->win_count_p1 > this->win_count_p2) return true;
-        if (this->win_count_p2 > this->win_count_p1 && this->swtch % 2 == 0) return true;
-        if (this->win_count_p2 > this->win_count_p1 && this->swtch % 2 != 0) return false;
+    if(this->n_moves < 9 || swtch==9)
+    {
+        cout << "Player 1 : " << win_count_p1 << " Point(s)\n";
+        cout << "Player 2 : " << win_count_p2 << " Point(s)\n";
+        cout << "---------------------------------\n";
+    }
+
+    if (this->n_moves == 9 ) {
+        if (win_count_p1 > win_count_p2) return true;
+        if (win_count_p2 > win_count_p1 && swtch % 2 == 0) return true;
+        if (win_count_p2 > win_count_p1 && swtch % 2 != 0) return false;
     }
     return false;
 }
@@ -168,6 +174,7 @@ SUS_X_O_Board<T>::~SUS_X_O_Board() {
 template <typename T>
 SUS_X_O_Player<T>::SUS_X_O_Player(string n,T letter) : Player<T>(n , letter) {}
 
+
 template <typename T>
 string SUS_X_O_Player<T>::getname() {
     return this->name;
@@ -175,10 +182,18 @@ string SUS_X_O_Player<T>::getname() {
 
 template <typename T>
 void SUS_X_O_Player<T>::getmove(int &x, int &y) {
-    //if (this->boardPtr->n_moves== 9) return;
-    cout << this->getname() << "'s turn.\n";
-    cout << "Enter a valid move (x and y separated by a space):\n";
-    cin >> x >> y;
+    if(win_count_p2 > win_count_p1 && swtch ==9)
+    {
+
+    }
+    else
+    {
+        cout << this->getname() << "'s turn.\n";
+        cout << "Enter a valid move (x and y separated by a space):\n";
+        cin >> x >> y;
+    }
+
+
 }
 
 template <typename T>

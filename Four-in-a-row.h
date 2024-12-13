@@ -1,6 +1,6 @@
 
-#ifndef MAD2_FOUR_IN_A_ROW_H
-#define MAD2_FOUR_IN_A_ROW_H
+#ifndef FOUR_IN_A_ROW_H
+#define FOUR_IN_A_ROW_H
 
 #include <iostream>
 #include <iomanip>
